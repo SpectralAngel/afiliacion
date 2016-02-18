@@ -10,8 +10,10 @@ class AUserManager(UserManager):
     def get_queryset(self):
         return super(AUserManager, self).get_queryset().select_related(
                 'affiliate',
+                'affiliate__cotizacion',
         ).prefetch_related(
                 'affiliate__cuotatable_set',
+                'affiliate__autoseguro_set',
                 'affiliate__loan_set',
                 'affiliate__loan_set__pay_set'
         )
