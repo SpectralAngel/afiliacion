@@ -108,3 +108,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 .idea/
+afiiacion/static/
+media
+afiliacion/.env
+*.db

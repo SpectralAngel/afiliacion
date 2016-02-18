@@ -1,0 +1,11 @@
+django
+django-debug-toolbar
+pytz
+six
+django-environ
+virtualenv
+mysqlclient
+django-crispy-forms
+-e git+https://github.com/SpectralAngel/bridge.git#egg=bridge
+django-storages
+-e git+https://github.com/django-extensions/django-extensions.git#egg=django-extensions

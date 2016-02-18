@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}{% load l10n %}{% load i18n %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3>{% trans 'COPEMH' %}</h3>
+            <h4>{% trans 'Estado de Cuenta Colegiaci&oacute;n' %}</h4>
+            <p>
+                <strong>{% trans 'Al' %} {% now "DATE_FORMAT" %}</strong>
+            </p>
+            <h4>
+                {{ user.affiliate.id }} {{ user.affiliate.first_name }} {{ user.affiliate.last_name }}
+            </h4>
+            <strong>{% trans 'Afiliado desde' %} {{ user.affiliate.joined }}</strong>
+            {% if user.affiliate.cotizacion.jubilados %}
+                {% if not user.affiliate.jubilated %}
+                    <div class="alert alert-danger" role="alert">
+                        {% blocktrans %}
+                            Advertencia, el afiliado esta jubilado y no tiene
+                            Fecha de Jubilaci&oacute;n, los c&aacute;s son
+                            erroneos
+                        {% endblocktrans %}
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <br>
+            <table class="small table table-striped table-condensed">
+                <thead>
+                <tr>
+                    <th>{% trans 'A&ntilde;o' %}</th>
+                    <th>{% trans 'Enero' %}</th>
+                    <th>{% trans 'Febrero' %}</th>
+                    <th>{% trans 'Marzo' %}</th>
+                    <th>{% trans 'Abril' %}</th>
+                    <th>{% trans 'Mayo' %}</th>
+                    <th>{% trans 'Junio' %}</th>
+                    <th>{% trans 'Julio' %}</th>
+                    <th>{% trans 'Agosto' %}</th>
+                    <th>{% trans 'Sept' %}</th>
+                    <th>{% trans 'Oct' %}</th>
+                    <th>{% trans 'Nov' %}</th>
+                    <th>{% trans 'Dic' %}</th>
+                    <th>{% trans 'Total' %}</th>
+                    <th>{% trans 'Deuda' %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for table in user.affiliate.cuotatable_set.all %}
+                    <tr>
+                        <td>{{ table.year }}</td>
+                        <td>{{ table.january }}</td>
+                        <td>{{ table.february }}</td>
+                        <td>{{ table.march }}</td>
+                        <td>{{ table.april }}</td>
+                        <td>{{ table.may }}</td>
+                        <td>{{ table.june }}</td>
+                        <td>{{ table.july }}</td>
+                        <td>{{ table.august }}</td>
+                        <td>{{ table.september }}</td>
+                        <td>{{ table.octuber }}</td>
+                        <td>{{ table.november }}</td>
+                        <td>{{ table.december }}</td>
+                        <td>{{ table.total }}</td>
+                        <td>{{ table.debt }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr class="total">
+                    <th colspan="13">{% trans 'Totales' %}</th>
+                    <th class="deuda">
+                        {{ user.affiliate.total_cuota }}
+                    </th>
+                    <th class="deuda">
+                        {{ user.affiliate.total_debt }}
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+{% endblock %}
