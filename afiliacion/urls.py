@@ -20,9 +20,9 @@ from django.contrib import admin
 from authorization.views import ProfileView
 
 urlpatterns = [
+    url(r'^$', ProfileView.as_view(), name='home'),
     url(r'^admin/', admin.site.urls),
-    url('^accounts/', include('django.contrib.auth.urls')),
+    url('^', include('django.contrib.auth.urls')),
 
-    url(r'^$', ProfileView.as_view(), name='profile'),
-    url(r'^test$', ProfileView.as_view(), name='profile'),
+    url(r'^accounts/profile/$', ProfileView.as_view(), name='profile'),
 ]

@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-mx'
 
 TIME_ZONE = 'UTC'
 
@@ -130,3 +130,6 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'authorization.User'
 MEDIA_ROOT = str(root.path('media'))
 MEDIA_URL = '/media/'
+
+LOGIN_URL = '/login/'
+LOGOUT_URL = '/logout/'
