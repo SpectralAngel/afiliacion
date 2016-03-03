@@ -67,7 +67,7 @@ ROOT_URLCONF = 'afiliacion.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates', ],
+        'DIRS': [str(root.path('templates')), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
