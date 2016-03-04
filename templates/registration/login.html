@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>COPEMH :: Afiliaci&oacute;n {% block title %}{% endblock %}</title>
+    {% load i18n %}{% load l10n %}
+    <title>COPEMH :: Afiliaci&oacute;n {% trans 'Estados de Cuenta' %}</title>
     <meta name="viewport" content="width=device-width"/>
     <meta name="description" content="">
     <meta name="author" content="">
@@ -31,10 +32,10 @@
     {% endif %}
     <div class="col-md-6 col-xs-6 col-md-offset-3 col-xs-offset-3">
         <form role="form" action="." method="post"> {% csrf_token %}
+            <h1>Estados de Cuenta COPEMH</h1>
             {% if form.non_field_errors %}
                 <div class="alert alert-danger">{{ form.non_field_errors|join:"<br \>" }}</div>
             {% endif %}
-
             {% for field in form %}
                 <div class="form-group {% if field.errors %}has-error{% endif %}">
                     {{ field.label_tag|add_class:"control-label" }}
@@ -48,7 +49,7 @@
                 </div>
             {% endfor %}
             <input class="btn btn-success" type="submit"
-                   value="{% trans 'submit' %}">
+                   value="{% trans 'Iniciar Sesi&oacute;n' %}">
         </form>
     </div>
     <br>
