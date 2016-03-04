@@ -32,7 +32,7 @@
     {% endif %}
     <div class="col-md-6 col-xs-6 col-md-offset-3 col-xs-offset-3">
         <form role="form" action="." method="post"> {% csrf_token %}
-            <h1>Estados de Cuenta COPEMH</h1>
+            <h1>{% trans 'Estados de Cuenta' %}</h1>
             {% if form.non_field_errors %}
                 <div class="alert alert-danger">{{ form.non_field_errors|join:"<br \>" }}</div>
             {% endif %}
@@ -52,10 +52,13 @@
                    value="{% trans 'Iniciar Sesi&oacute;n' %}">
         </form>
     </div>
-    <br>
-    <br>
     <div class="row">
-        <div class="col-md-offset-3 col-md-6 col-xs-6">
+        <div class="col-md-12 col-xs-12">
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-xs-8">
             <script async
                     src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- Estado de Cuenta -->
