@@ -14,7 +14,6 @@ class Command(BaseCommand):
     help = "Creates the missing users based in the :class:`Affiliate` data"
 
     def handle(self, *args, **options):
-        non_decimal = re.compile(r'[^\d.]+')
 
         max_created = User.objects.aggregate(
                 max=Max('affiliate_id')
